@@ -37,7 +37,7 @@ PyTubeGrabber é um aplicativo de desktop desenvolvido em Python para facilitar 
 
 - Interface gráfica moderna e amigável
 - Download de vídeos em formato MP4 com várias qualidades (até 1080p)
-- Extração de áudio em formato MP3
+- Extração de áudio em formatos MP3 e WAV
 - Exibição de informações detalhadas sobre o vídeo antes do download
 - Barra de progresso em tempo real
 - Suporte a temas claro e escuro
@@ -150,7 +150,7 @@ Opções disponíveis:
 
 - `--url`: URL do vídeo do YouTube
 - `--dir`: Diretório de saída para o arquivo baixado
-- `--format`: Formato de saída (`mp3` ou `mp4`)
+- `--format`: Formato de saída (`mp3`, `wav` ou `mp4`)
 - `--quality`: Qualidade do vídeo (`best`, `high`, `medium`, `low`)
 - `--version`: Exibe a versão do aplicativo
 

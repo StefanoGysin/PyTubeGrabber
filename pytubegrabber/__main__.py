@@ -28,8 +28,8 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='PyTubeGrabber - Download de vídeos do YouTube')
     parser.add_argument('--url', help='URL do vídeo para download')
     parser.add_argument('--dir', help='Diretório de saída para o download')
-    parser.add_argument('--format', choices=['mp3', 'mp4'], default='mp4',
-                       help='Formato de saída (mp3 ou mp4)')
+    parser.add_argument('--format', choices=['mp3', 'mp4', 'wav'], default='mp4',
+                       help='Formato de saída (mp3, wav ou mp4)')
     parser.add_argument('--quality', choices=['best', 'high', 'medium', 'low'], 
                        default='best', help='Qualidade do vídeo')
     parser.add_argument('--version', action='store_true', 

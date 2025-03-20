@@ -24,6 +24,22 @@ DEFAULT_CONFIG = {
     "language": "pt-BR"
 }
 
+# Formato para MP3
+MP3_FORMAT = {
+    'id': 'bestaudio/best',
+    'ext': 'mp3',
+    'description': 'Melhor qualidade (MP3)',
+    'format_note': 'Audio',
+}
+
+# Formato para WAV
+WAV_FORMAT = {
+    'id': 'bestaudio/best',
+    'ext': 'wav',
+    'description': 'Alta fidelidade (WAV)',
+    'format_note': 'Audio',
+}
+
 def ensure_config_dir() -> None:
     """
     Garante que o diretório de configuração existe.
@@ -96,42 +112,39 @@ def get_default_options() -> Dict[str, Any]:
 
 def get_fallback_formats() -> List[Dict[str, Any]]:
     """
-    Retorna uma lista de formatos padrão quando não é possível 
-    obter formatos específicos de um vídeo.
-    
-    Returns:
-        Lista de formatos padrão
+    Retorna formatos padrão para quando a API falha ao obter informações do vídeo.
     """
-    return [
-        {
-            'id': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]/best',
+    formats = []
+    
+    # Adicionar formatos MP4
+    for preset in MP4_QUALITY_PRESETS:
+        formats.append({
+            'id': preset['id'],
             'ext': 'mp4',
-            'description': '1080p (MP4)',
-            'format_note': 'Qualidade Alta',
+            'description': preset['description'],
+            'format_note': 'Fallback',
             'format': None
-        },
-        {
-            'id': 'bestvideo[height<=720]+bestaudio/best[height<=720]/best',
-            'ext': 'mp4',
-            'description': '720p (MP4)',
-            'format_note': 'Qualidade Média',
-            'format': None
-        },
-        {
-            'id': 'bestvideo[height<=480]+bestaudio/best[height<=480]/best',
-            'ext': 'mp4',
-            'description': '480p (MP4)',
-            'format_note': 'Qualidade Baixa',
-            'format': None
-        },
-        {
-            'id': 'bestaudio/best',
-            'ext': 'mp3',
-            'description': 'Melhor qualidade (MP3)',
-            'format_note': 'Áudio',
-            'format': None
-        }
-    ]
+        })
+    
+    # Adicionar formato MP3
+    formats.append({
+        'id': MP3_FORMAT['id'],
+        'ext': 'mp3',
+        'description': MP3_FORMAT['description'],
+        'format_note': MP3_FORMAT['format_note'],
+        'format': None
+    })
+    
+    # Adicionar formato WAV
+    formats.append({
+        'id': WAV_FORMAT['id'],
+        'ext': 'wav',
+        'description': WAV_FORMAT['description'],
+        'format_note': WAV_FORMAT['format_note'],
+        'format': None
+    })
+    
+    return formats
 
 def get_download_dir() -> str:
     """

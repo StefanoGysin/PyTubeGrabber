@@ -212,6 +212,17 @@ class VideoDownloader:
                     'format': 'bestaudio/best',
                 })
             
+            # Opções específicas para WAV
+            elif ext == 'wav':
+                ydl_opts.update({
+                    'postprocessors': [{
+                        'key': 'FFmpegExtractAudio',
+                        'preferredcodec': 'wav',
+                        'preferredquality': 'best',  # WAV não tem compressão, então usamos a melhor qualidade
+                    }],
+                    'format': 'bestaudio/best',
+                })
+            
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 error_code = ydl.download([url])
                 if error_code != 0:

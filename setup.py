@@ -35,7 +35,7 @@ requirements = [
 setup(
     name='pytubegrabber',
     version=get_version(),
-    description='Aplicativo para download de vídeos do YouTube em MP3 e MP4',
+    description='Aplicativo para download de vídeos do YouTube em MP3, WAV e MP4',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Stefano Gysin',
@@ -53,7 +53,7 @@ setup(
     include_package_data=True,
     install_requires=requirements,
     python_requires='>=3.6',
-    keywords='youtube, download, mp3, mp4, vídeo, áudio',
+    keywords='youtube, download, mp3, wav, mp4, vídeo, áudio',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: End Users/Desktop',
