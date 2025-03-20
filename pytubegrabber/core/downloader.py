@@ -129,6 +129,15 @@ class VideoDownloader:
                         'format': None
                     })
                     
+                    # Adicionar formato de áudio (WAV)
+                    formats.append({
+                        'id': 'bestaudio/best',
+                        'ext': 'wav',
+                        'description': "Alta fidelidade (WAV)",
+                        'format_note': 'Audio',
+                        'format': None
+                    })
+                    
                     return formats, info
                 
                 # Se não conseguiu formatos específicos, usar os padrões
