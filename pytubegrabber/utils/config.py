@@ -24,6 +24,15 @@ DEFAULT_CONFIG = {
     "language": "pt-BR"
 }
 
+# Lista de formatos comuns para MP4
+MP4_QUALITY_PRESETS = [
+    {'id': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', 'description': 'Melhor qualidade (MP4)'},
+    {'id': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]', 'description': '1080p (MP4)'},
+    {'id': 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]', 'description': '720p (MP4)'},
+    {'id': 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]', 'description': '480p (MP4)'},
+    {'id': 'bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360][ext=mp4]', 'description': '360p (MP4)'},
+]
+
 # Formato para MP3
 MP3_FORMAT = {
     'id': 'bestaudio/best',
